@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-web-app-deployment
+  labels:
+    app: red-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: red-web-app
+  template:
+    metadata:
+      labels:
+        app: red-web-app
+    spec:
+      imagePullSecrets:
+        - name: nexus-secret
+      containers:
+      - name: red-web-app
+        image: host.minikube.internal:5000/my-red-webapp:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
