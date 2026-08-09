@@ -12,9 +12,6 @@ metadata:
  
     app: nginx-app
  
-strategy:
- 
-  type: Recreate
  
 spec:
  
