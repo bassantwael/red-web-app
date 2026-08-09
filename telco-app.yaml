@@ -56,5 +56,5 @@ spec:
             - |
               sed -i -e 's/#d32f2f;/#1976d2;/g' /usr/share/nginx/html/index.html
               sed -i -e 's/#b71c1c;/#0d47a1;/g' /usr/share/nginx/html/index.html
- 
+              nginx -g 'daemon off;' 
 ---
