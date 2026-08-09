@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+ 
+kind: Deployment
+ 
+metadata:
+ 
+  name: telco-app
+ 
+  namespace: rancher-stress
+ 
+  labels:
+ 
+    app: nginx-app
+ 
+spec:
+ 
+  replicas: 3
+ 
+  selector:
+ 
+    matchLabels:
+ 
+      app: telco-app
+ 
+  template:
+ 
+    metadata:
+ 
+      labels:
+ 
+        app: telco-app
+ 
+    spec:
+            #securityContext:
+              #runAsUser: 0  # Run as root
+      containers:
+ 
+        - name: telco-app
+ 
+          #securityContext:
+          # privileged: true  # Only if absolutely necessary
+ 
+          image: 10.115.55.84:7008/telco-webapp
+ 
+          imagePullPolicy: Always
+ 
+          ports:
+ 
+            - name: telco-app-port
+ 
+              containerPort: 80
+ 
+              protocol: TCP
+ 
+---
