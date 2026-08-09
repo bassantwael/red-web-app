@@ -12,11 +12,13 @@ metadata:
  
     app: nginx-app
  
+strategy:
+ 
+  type: Recreate
+ 
 spec:
  
   replicas: 3
-  strategy:
-    type: Recreate
   selector:
  
     matchLabels:
